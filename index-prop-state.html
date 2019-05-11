@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+ 
+<html>
+	<head>
+		<meta charset = "utf-8">
+        <title>First React Project</title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">   
+		<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> 
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+		/*	function App() {
+				return (
+					<div>
+						<p>Hello React</p>
+					</div>
+				)
+			} */
+
+			// App Component [ Parent ]
+			class App extends React.Component {
+
+				state = {
+					name : 'App Component',
+					 
+				}
+
+				render() {
+					return (
+					<div>
+						<p> {this.state.name} </p>
+						<Header title="Hello Sana and Sama" name="Header" />
+						<Content name="Content" />
+						<Footer name="Footer" />
+					</div>
+			    	)
+
+				}
+			}
+
+			// Header Component [ Child ]
+			class Header extends React.Component {
+				state = {
+					name : 'Header Component'
+				}
+
+				render() {
+					return (
+						<header>{this.props.title} and state {this.state.name} </header>
+						//<header>{console.log(this.props}</header>
+					)
+				}
+			}
+
+			// Content Component
+			class Content extends React.Component {
+				state = {
+					name : 'Content Component'
+				}
+
+				render() {
+					return (
+						<main>{this.props.name} and state {this.state.name}</main>	
+					)
+				}
+			}
+			// Footer Component
+			class Footer extends React.Component {
+				state = {
+					name : 'Footer Component'
+				}
+
+				render() {
+					return (
+						<footer>{this.props.name} and state {this.state.name}</footer>
+					)
+				}
+
+			}
+
+
+			ReactDOM.render(<App /> ,document.getElementById('app'))
+		</script>
+    </body>    
+</html>
